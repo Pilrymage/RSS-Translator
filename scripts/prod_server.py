@@ -14,8 +14,8 @@ def setup_environment():
     # os.environ["LOG_LEVEL"] = "INFO"
     # 合并已存在的 CSRF_TRUSTED_ORIGINS
     default_origins = (
-        "http://localhost,http://localhost:8000,http://127.0.0.1,http://127.0.0.1:8000,"
-        "https://localhost,https://localhost:8000,https://127.0.0.1,https://127.0.0.1:8000"
+        "http://localhost,http://localhost:3000,http://127.0.0.1,http://127.0.0.1:3000,"
+        "https://localhost,https://localhost:3000,https://127.0.0.1,https://127.0.0.1:3000"
     )
     existing = os.environ.get("CSRF_TRUSTED_ORIGINS", "")
     origins_set = set(filter(None, (existing + "," + default_origins).split(",")))
@@ -27,7 +27,7 @@ def start_production_server():
     print("🌐 准备Django生产服务器...")
     workers = os.environ.get("WORKERS", "1")
     host = os.environ.get("HOST", "0.0.0.0")
-    port = os.environ.get("PORT", "8000")
+    port = os.environ.get("PORT", "3000")
     # 检查可用的ASGI/WSGI服务器
     server_type = None
 
